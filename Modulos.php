@@ -2,7 +2,7 @@
 namespace clases\Login;
 
 
-use clases\MYySql\Query;
+use clases\MySql\Query;
 use clases\BasicInterface;
 
 /**

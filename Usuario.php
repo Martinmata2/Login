@@ -6,10 +6,10 @@ namespace clases\Login;
  * @version v2020_2
  * @author Martin Mata
  */
-use clases\MYSQL\Conexion;
-use clases\MYSQL\Query;
+use clases\MySql\Conexion;
+use clases\MySql\Query;
 use clases\BasicInterface;
-use clases\UTILIDADES\AjustesEspeciales;
+use clases\Utilidades\AjustesEspeciales;
 
 class Usuario extends Query implements BasicInterface
 {
