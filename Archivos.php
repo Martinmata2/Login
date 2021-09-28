@@ -1,6 +1,6 @@
 <?php
 namespace clases\Login;
-use clases\MYSQL\Query;
+use clases\MySql\Query;
 use clases\BasicInterface;
 
 /**
