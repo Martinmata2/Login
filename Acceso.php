@@ -1,5 +1,5 @@
 <?php
-namespace clases\Login;
+namespace Clases\Login;
 
 /**
  *

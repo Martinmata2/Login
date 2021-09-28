@@ -1,15 +1,15 @@
 <?php
-namespace clases\Login;
+namespace Clases\Login;
 
 /**
  *
  * @version v2020_2
  * @author Martin Mata
  */
-use clases\MySql\Conexion;
-use clases\MySql\Query;
-use clases\BasicInterface;
-use clases\Utilidades\AjustesEspeciales;
+use Clases\MySql\Conexion;
+use Clases\MySql\Query;
+use Clases\BasicInterface;
+use Clases\Utilidades\AjustesEspeciales;
 
 class Usuario extends Query implements BasicInterface
 {

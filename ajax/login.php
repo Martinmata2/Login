@@ -1,5 +1,5 @@
 <?php
-use clases\Login\Personal;
+use Clases\Login\Personal;
 
 /**
  * Intenta logear en el sistema y cuenta el numero de intentos fallidos

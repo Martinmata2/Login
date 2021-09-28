@@ -1,7 +1,7 @@
 <?php
-namespace clases\Login;
+namespace Clases\Login;
 use clases\MySql\Query;
-use clases\BasicInterface;
+use Clases\BasicInterface;
 
 /**
  * @version v2020_2
