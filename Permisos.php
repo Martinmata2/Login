@@ -200,7 +200,7 @@ class Permisos extends Query implements BasicInterface
 			CREATE TABLE IF NOT EXISTS `permisosusuarios` (
 			  `PusID` int(11) NOT NULL AUTO_INCREMENT,
 			  `PusUsuario` int(11) NOT NULL,
-			  `PusPermisos` varchar(100) COLLATE utf8_spanish2_ci NOT NULL,
+			  `PusPermisos` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
 			  `updated` int(1) NOT NULL,
 		      `lastupdate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				PRIMARY KEY (`PusID`)
