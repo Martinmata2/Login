@@ -40,11 +40,12 @@ class Usuario extends Query implements BasicInterface
      * {@inheritdoc}
      * @see \clases\BasicInterface::lista()
      */
+    /*
     public function lista($seleccionado = "0", $ordenado = "0", $condicion = "0")
     {
         return $this->options("UsuID as id, UsuNombre as nombre", "usuarios", $this->base_datos, $seleccionado, $condicion, $ordenado);
     }
-
+    */
     /**
      * Elimina (Inactivo) Usuario
      *

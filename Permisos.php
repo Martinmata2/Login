@@ -122,13 +122,14 @@ class Permisos extends Query implements BasicInterface
 	 * {@inheritDoc}
 	 * @see \clases\BasicInterface::lista()
 	 */
+	/*
 	public function lista($seleccionado, $ordenado, $condicion)
 	{
 	    //TODO
 	    return 0;
 		//return $this->options("UsuID as id, UsuNombre as nombre","usuarios", $this->base_datos,"id", $seleccionado);
 	}
-
+    */
 
 	/**
 	 * Obtiene pagina correspondiente al permiso

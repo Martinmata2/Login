@@ -73,12 +73,13 @@ class Rol extends Query implements BasicInterface
      * {@inheritDoc}
      * @see \clases\BasicInterface::lista()
      */
+    /*
     public function lista($seleccionado = "0", $ordenado = "0", $condicion = "0")
     {
         return $this->options("RolID as id, RolNombre as nombre","rol", 
             $this->base_datos,"id", $seleccionado, $condicion, $ordenado);
     }
-
+    */
     
     /**
      * Regresa el sql de la tabla usuarios

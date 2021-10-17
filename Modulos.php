@@ -74,12 +74,13 @@ class Modulos extends Query implements BasicInterface
      * {@inheritDoc}
      * @see \clases\BasicInterface::lista()
      */
+    /*
     public function lista($seleccionado = "0", $ordenado = "0", $condicion = "0")
     {
         return $this->options("ModID as id, ModNombre as nombre","modulos", 
             $this->base_datos,"id", $seleccionado, $condicion, $ordenado);
     }
-
+    */
 
     
     /**
