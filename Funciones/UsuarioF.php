@@ -87,6 +87,8 @@ class UsuarioF extends PermisosBD implements FuncionInterface
           `lastupdate` timestamp NOT NULL DEFAULT current_timestamp(),
           `UsuClavePAC` tinytext COLLATE utf8_spanish2_ci NOT NULL,
           `UsuUsuarioPAC` tinytext COLLATE utf8_spanish2_ci NOT NULL,
+          `token` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+          `session_id` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
           PRIMARY KEY (`UsuID`),
           UNIQUE KEY `UsuUsuario` (`UsuUsuario`)
         ) ENGINE=MyISAM AUTO_INCREMENT=169 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci";
@@ -101,7 +103,20 @@ class UsuarioF extends PermisosBD implements FuncionInterface
     private function pendingupdates()
     {
         //sql code para actualizar tabla
-        $update = "";                
+        $update = "
+        IF NOT EXISTS( SELECT NULL FROM INFORMATION_SCHEMA.COLUMNS
+           WHERE table_name = '".$this->table()."'
+             AND table_schema = '".$this->base_datos."'
+             AND column_name = 'token')  THEN
+         ALTER TABLE `".$this->table()."` ADD `token` varchar(45) COLLATE utf8_spanish2_ci NOT NULL; 
+        END IF;
+        IF NOT EXISTS( SELECT NULL FROM INFORMATION_SCHEMA.COLUMNS
+           WHERE table_name = '".$this->table()."'
+             AND table_schema = '".$this->base_datos."'
+             AND column_name = 'session_id')  THEN
+         ALTER TABLE `".$this->table()."` ADD `session_id` varchar(45) COLLATE utf8_spanish2_ci NOT NULL; 
+        END IF;
+        ";                
         return $update;
     }
 }

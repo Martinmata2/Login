@@ -35,19 +35,19 @@ class Acceso extends Usuario
      */
    public function login($usuario, $clave)
    {
-       $usuario = $this->conn->escape($usuario);
-       $clave = $this->conn->escape($clave);              
+       $usuario = $this->conexion->real_escape_string($usuario);
+       $clave = $this->conexion->real_escape_string($clave);              
        $login = $this->consulta("*", $this->Tabla, "UsuUsuario = '$usuario' AND UsuClave = '$clave' AND  UsuActivo = ".USU_ACTIVO);
-       if (count($login) > 0) 
-       {
-          
-               $this->Usuario->data = new UsuarioD($login[0]);               
-               $this->resetValores();
-               $this->sessionIniciar();
-               $this->recuerdame();                                
-               return $login[0];//this->Usuario->data;
+       if ($login !== 0 && count($login) > 0) 
+       {          
+           $this->Usuario->data = new UsuarioD($login[0]);               
+           $this->resetValores();
+           $this->sessionIniciar();
+           $this->recuerdame();                                
+           return $login[0];//this->Usuario->data;
            
-       } else
+       } 
+       else
            return 0;
    }
    
@@ -85,7 +85,7 @@ class Acceso extends Usuario
    private function recuerdame()
    {
        $token = $this->crearllave(24);              
-       $this->modificar($this->Tabla, array("token"=>$token), $this->Usuario->data->UsuIDid, "UsuID");     
+       $this->modificar($this->Tabla, array("token"=>$token), $this->Usuario->data->UsuID, "UsuID");     
       
            Cookie::Remove("auth",$this->cookieoptions);
            Cookie::Remove("usrtoken",$this->cookieoptions);
@@ -123,7 +123,7 @@ class Acceso extends Usuario
        @session_start();
         if (isset($_SESSION["USR_ID"]))
         {
-            $credenciales = $this->consulta("*", $this->Tabla, $this->base_datos, "session_id = '" . session_id() . "'");
+            $credenciales = $this->consulta("*", $this->Tabla, "session_id = '" . session_id() . "'");
             if(count($credenciales) > 0)
             {                
                 return true;//this->Usuario->data;
