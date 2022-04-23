@@ -60,6 +60,12 @@ class Rol extends Query implements BasedatosInterface
         return true;       
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Clases\Catalogos\BasedatosInterface::obtener()
+     * @return RolD
+     */
     public function obtener($id = 0, $campo = "RolID", $condicion = "0")
     {
         if($id <= 0)
