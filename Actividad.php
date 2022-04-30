@@ -139,5 +139,37 @@ class Actividad extends Query implements BasedatosInterface
             return true;
         else return false;
     }
+    
+    /**
+     * Entradas de dinero para usuario en periodo de tiempo dado
+     * @param string $ultimoCorte
+     * @param int $usuario
+     * @return number
+     */
+    public function entradas(string $ultimoCorte, int $usuario)
+    {
+        $resultado = $this->consulta("sum(ActCantidad) as Cantidad","actividad",
+            "ActUsuario = $usuario  AND (ActCodigo = ".ACT_VENTA." or ActCodigo = ".ACT_ENTRADA_EFECTIVO." or ActCodigo = ".ACT_PAGOS.")
+                 and (ActFecha > '$ultimoCorte')");
+        if(count($resultado) > 0)
+            return $resultado[0]->Cantidad;
+        else return 0.00;
+    }
+    
+    /**
+     * 
+     * @param string $ultimoCorte
+     * @param int $usuario
+     * @return number
+     */
+    public function salidas(string $ultimoCorte, int $usuario)
+    {
+        $resultado = $this->consulta("sum(ActCantidad) as Cantidad","actividad",
+            "ActUsuario = $usuario AND (ActCodigo = ".ACT_COMPRAS." or ActCodigo = ".ACT_DEVOLUCION." or ActCodigo = ".ACT_SALIDA_EFECTIVO.")
+                        and (ActFecha > '$ultimoCorte')");
+        if(\count($resultado)>0)
+            return $resultado[0]->Cantidad;
+            else return 0.00;
+    }
 }
 
