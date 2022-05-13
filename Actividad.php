@@ -35,6 +35,7 @@ define("ACT_ERROR", 400);
 define("ACT_DATOS_VALIDOS",200);
 define("ACT_DATOS_INVALIDOS",400);
 
+define("ACT_STATUS_MODIFICADO",2);
 class Actividad extends Query implements BasedatosInterface
 {
    

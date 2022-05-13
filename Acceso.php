@@ -123,16 +123,12 @@ class Acceso extends Usuario
        @session_start();
         if (isset($_SESSION["USR_ID"]))
         {
-            $credenciales = $this->consulta("*", $this->Tabla, "session_id = '" . session_id() . "'");
-            if(count($credenciales) > 0)
-            {                
-                return true;//this->Usuario->data;
-            }                                  
+           return true;  //estan logieados de otra computadora.           
         }
         elseif (Cookie::Exists('auth') && Cookie::Get('auth') !== false)
         {
-            $credenciales = $this->consulta("*", $this->Tabla, $this->base_datos, "token = '" . Cookie::Get("usrtoken") . "'");
-            if(count($credenciales) > 0)
+            $credenciales = $this->consulta("*", $this->Tabla, "token = '" . Cookie::Get("usrtoken") . "'");
+            if($credenciales !== 0 && count($credenciales) > 0)
             {
                 $this->Usuario->data = new UsuarioD($credenciales[0]);
                 $this->resetValores();
@@ -140,6 +136,7 @@ class Acceso extends Usuario
                 //$this->recuerdame();
                 return true;
             }
+            else return false;
         }
         else
             return false;
