@@ -32,7 +32,7 @@ class ActividadF extends PermisosBD implements FuncionInterface
     {
         if ($resultado = $this->conexion->query("SHOW TABLES LIKE '" . $this->table() . "'"))
         {
-            if ($resultado->field_count == 0) $this->conexion->multi_query($this->sql());
+            if ($resultado->num_rows == 0) $this->conexion->multi_query($this->sql());
         }
     }
 
@@ -40,7 +40,7 @@ class ActividadF extends PermisosBD implements FuncionInterface
     {
         if ($resultado = $this->conexion->query("SHOW TABLES LIKE '" . $this->table() . "'"))
         {
-            if ($resultado->field_count > 0)
+            if ($resultado->num_rows > 0)
             {
                 if (strlen(trim($this->pendingupdates())) > 10) $this->conexion->multi_query($this->pendingupdates());
             }
