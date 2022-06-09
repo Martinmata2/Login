@@ -82,7 +82,23 @@ class ArchivosF extends PermisosBD implements FuncionInterface
     private function pendingupdates()
     {
         //sql code para actualizar tabla
-        $update = "";                
+        $update = " UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Compras.php' WHERE `archivos`.`ArcID` = 20;
+                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Compras.php' WHERE `archivos`.`ArcID` = 21;
+                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Salidas.php' WHERE `archivos`.`ArcID` = 22;
+                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Bitacora.php' WHERE `archivos`.`ArcID` = 30;
+                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Salidas.php' WHERE `archivos`.`ArcID` = 23;
+                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Ajustar.php' WHERE `archivos`.`ArcID` = 24;
+                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Ajustes.php' WHERE `archivos`.`ArcID` = 27;
+                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Traspasos.php' WHERE `archivos`.`ArcID` = 34;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Productos.php' WHERE `archivos`.`ArcID` = 10;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Clientes.php' WHERE `archivos`.`ArcID` = 11;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Agregar/Productos.php' WHERE `archivos`.`ArcID` = 13;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Agregar/Clientes.php' WHERE `archivos`.`ArcID` = 14;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Agregar/Proveedor.php' WHERE `archivos`.`ArcID` = 15;
+                    UPDATE `archivos` SET `ArcPath` = 'Pos/Agregar/Venta.php' WHERE `archivos`.`ArcID` = 16;
+                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Ventas.php' WHERE `archivos`.`ArcID` = 17;
+                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Creditos.php' WHERE `archivos`.`ArcID` = 18;
+                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Historial.php' WHERE `archivos`.`ArcID` = 19;";                
         return $update;
     }
 }
