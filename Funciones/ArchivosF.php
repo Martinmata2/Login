@@ -87,7 +87,7 @@ class ArchivosF extends PermisosBD implements FuncionInterface
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Salidas.php' WHERE `archivos`.`ArcID` = 22;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Bitacora.php' WHERE `archivos`.`ArcID` = 30;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Salidas.php' WHERE `archivos`.`ArcID` = 23;
-                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Ajustar.php' WHERE `archivos`.`ArcID` = 24;
+                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Ajustes.php' WHERE `archivos`.`ArcID` = 24;                    
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Ajustes.php' WHERE `archivos`.`ArcID` = 27;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Traspasos.php' WHERE `archivos`.`ArcID` = 34;
                     UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Productos.php' WHERE `archivos`.`ArcID` = 10;
