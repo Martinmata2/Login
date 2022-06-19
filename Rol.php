@@ -6,6 +6,7 @@ use Clases\Login\Funciones\RolF;
 use Clases\Utilidades\Validar;
 use Clases\Login\Datos\RolD;
 use Clases\Catalogos\BasedatosInterface;
+use Clases\Catalogos\ListaInterface;
 
 //Definiciones para estandarizar valores
 define("ROL_ELIMINADO", 1);
@@ -15,7 +16,7 @@ define("ROL_SUCCESS", 200);
 define("ROL_ERROR", 400);
 define("ROL_DATOS_VALIDOS",200);
 define("ROL_DATOS_INVALIDOS",400);
-class Rol extends Query implements BasedatosInterface
+class Rol extends Query implements BasedatosInterface, ListaInterface
 {
    
     /**
@@ -125,5 +126,13 @@ class Rol extends Query implements BasedatosInterface
             return true;
         else return false;
     }
+    public function listaJson($seleccionado, $condicion = "0", $ordenado = "0")
+    {}
+
+    public function listaSelect($seleccionado, $condicion = "0", $ordenado = "0")
+    {
+        return $this->options("RolID as id, RolNombre as nombre", $this->Tabla, "id", $seleccionado, $condicion, $ordenado);
+    }
+
 }
 

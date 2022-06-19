@@ -82,7 +82,8 @@ class ArchivosF extends PermisosBD implements FuncionInterface
     private function pendingupdates()
     {
         //sql code para actualizar tabla
-        $update = " UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Compras.php' WHERE `archivos`.`ArcID` = 20;
+        $update = " UPDATE `archivos` SET `ArcPath` = 'Administrador/Lista/Usuarios.php' WHERE `archivos`.`ArcID` = 4;
+                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Compras.php' WHERE `archivos`.`ArcID` = 20;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Compras.php' WHERE `archivos`.`ArcID` = 21;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Salidas.php' WHERE `archivos`.`ArcID` = 22;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Bitacora.php' WHERE `archivos`.`ArcID` = 30;
