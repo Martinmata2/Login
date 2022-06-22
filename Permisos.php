@@ -6,6 +6,7 @@ use Clases\Login\Funciones\PermisosF;
 use Clases\Utilidades\Validar;
 use Clases\Login\Datos\PermisosD;
 use Clases\Catalogos\BasedatosInterface;
+use Clases\GridInterface;
 
 //Definiciones para estandarizar valores
 define("PUS_ELIMINADO", 1);
@@ -15,7 +16,7 @@ define("PUS_SUCCESS", 200);
 define("PUS_ERROR", 400);
 define("PUS_DATOS_VALIDOS",200);
 define("PUS_DATOS_INVALIDOS",400);
-class Permisos extends Query implements BasedatosInterface
+class Permisos extends Query implements BasedatosInterface, GridInterface
 {
    
     /**
@@ -119,6 +120,42 @@ class Permisos extends Query implements BasedatosInterface
             return true;
         else return false;
     }
+    public function grid($arguments = null)
+    {}
+
+    public function forma($arguments = null)
+    {
+        $html = "<div class='row py-2'>";
+        $MODULOS = new Modulos();       
+        $ARCHIVOS = new Archivos();        
+        $secciones = $MODULOS->obtener(0,0,"ModRol >= ".$_SESSION["USR_ROL"]);        
+        foreach ($secciones as $seccion)
+        {
+            $html .= "
+                        <div class='col-lg-4 py-2'>
+                            <p class='lead fw-normal text-muted mb-0'>".$seccion->ModNombre."</p>
+                            <ul class='tree1'>
+                                <li><input type='checkbox' value='0' /><label> -Todos-</label>
+                                    <ul>";
+            $archivos = $ARCHIVOS->obtener(0,0,"ArcModulo = $seccion->ModID");            
+            if(!empty($archivos))
+                foreach ($archivos as $archivo)
+                {
+                    $html .="<li><input type='checkbox' id='id_".$archivo->ArcID."' value='".$archivo->ArcID."' /> - ".$archivo->ArcNombre."</li>";
+                }
+            $html .= "         </ul>
+                            </li>
+                        </ul>
+                    </div>";
+        }
+        $html .="<div id='permisos_seleccionados'>Permisos selecionados</div>";
+        $html .="</div>";
+        return $html;
+    }
+
+    public function modal($arguments = null)
+    {}
+
     
 }
 

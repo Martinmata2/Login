@@ -82,7 +82,10 @@ class ModulosF extends PermisosBD implements FuncionInterface
     private function pendingupdates()
     {
         //sql code para actualizar tabla
-        $update = "";                
+        $update = "UPDATE `modulos` SET `ModRol` = '4' WHERE `modulos`.`ModID` = 3; 
+                UPDATE `modulos` SET `ModRol` = '4' WHERE `modulos`.`ModID` = 4; 
+                UPDATE `modulos` SET `ModRol` = '4' WHERE `modulos`.`ModID` = 5; 
+                UPDATE `modulos` SET `ModRol` = '3' WHERE `modulos`.`ModID` = 7;";                
         return $update;
     }
 }

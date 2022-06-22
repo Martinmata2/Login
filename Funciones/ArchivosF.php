@@ -83,6 +83,8 @@ class ArchivosF extends PermisosBD implements FuncionInterface
     {
         //sql code para actualizar tabla
         $update = " UPDATE `archivos` SET `ArcPath` = 'Administrador/Lista/Usuarios.php' WHERE `archivos`.`ArcID` = 4;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Descuentos.php', `ArcModulo` = '3', `ArcOrden` = '8' WHERE `archivos`.`ArcID` = 7;
+                    UPDATE `archivos` SET `ArcPath` = 'Administrador/Ajustes.php' WHERE `archivos`.`ArcID` = 8;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Compras.php' WHERE `archivos`.`ArcID` = 20;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Compras.php' WHERE `archivos`.`ArcID` = 21;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Salidas.php' WHERE `archivos`.`ArcID` = 22;

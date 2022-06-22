@@ -64,7 +64,7 @@ class Modulos extends Query implements BasedatosInterface
     {
         if($id <= 0)
         {
-            $resultado = $this->consulta("*", $this->Tabla, "deleted <> ".MOD_ELIMINADO);
+            $resultado = $this->consulta("*", $this->Tabla, $condicion);
             if (\count($resultado) > 0)
                 return $resultado;
                 else return 0;
