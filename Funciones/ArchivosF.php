@@ -85,6 +85,7 @@ class ArchivosF extends PermisosBD implements FuncionInterface
         $update = " UPDATE `archivos` SET `ArcPath` = 'Administrador/Lista/Usuarios.php' WHERE `archivos`.`ArcID` = 4;
                     UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Descuentos.php', `ArcModulo` = '3', `ArcOrden` = '8' WHERE `archivos`.`ArcID` = 7;
                     UPDATE `archivos` SET `ArcPath` = 'Administrador/Ajustes.php' WHERE `archivos`.`ArcID` = 8;
+                    UPDATE `archivos` SET `ArcPath` = 'Administrador/Lista/Claves.php' WHERE `archivos`.`ArcID` = 9;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Compras.php' WHERE `archivos`.`ArcID` = 20;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Compras.php' WHERE `archivos`.`ArcID` = 21;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Salidas.php' WHERE `archivos`.`ArcID` = 22;
@@ -103,7 +104,11 @@ class ArchivosF extends PermisosBD implements FuncionInterface
                     UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Creditos.php' WHERE `archivos`.`ArcID` = 18;
                     UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Historial.php' WHERE `archivos`.`ArcID` = 19;                    
                     UPDATE `archivos` SET `ArcPath` = 'Pos/Agregar/Presupuesto.php' WHERE `archivos`.`ArcID` = 36;
-                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Presupuestos.php' WHERE `archivos`.`ArcID` = 37;";                
+                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Presupuestos.php' WHERE `archivos`.`ArcID` = 37;
+                    UPDATE `archivos` SET `ArcPath` = 'Reportes/Monetario.php' WHERE `archivos`.`ArcID` = 25;
+                    UPDATE `archivos` SET `ArcPath` = 'Reportes/Pizarron.php' WHERE `archivos`.`ArcID` = 26;
+                    UPDATE `archivos` SET `ArcPath` = 'Reportes/Venta_Productos.php' WHERE `archivos`.`ArcID` = 29;
+                    UPDATE `archivos` SET `ArcPath` = 'Reportes/Corte_Caja.php' WHERE `archivos`.`ArcID` = 41;";                
         return $update;
     }
 }
