@@ -108,7 +108,15 @@ class ArchivosF extends PermisosBD implements FuncionInterface
                     UPDATE `archivos` SET `ArcPath` = 'Reportes/Monetario.php' WHERE `archivos`.`ArcID` = 25;
                     UPDATE `archivos` SET `ArcPath` = 'Reportes/Pizarron.php' WHERE `archivos`.`ArcID` = 26;
                     UPDATE `archivos` SET `ArcPath` = 'Reportes/Venta_Productos.php' WHERE `archivos`.`ArcID` = 29;
-                    UPDATE `archivos` SET `ArcPath` = 'Reportes/Corte_Caja.php' WHERE `archivos`.`ArcID` = 41;";                
+                    UPDATE `archivos` SET `ArcPath` = 'Reportes/Corte_Caja.php' WHERE `archivos`.`ArcID` = 41;
+                    UPDATE `archivos` SET `ArcIcon` = 'first-aid-kit-1' WHERE `archivos`.`ArcID` = 38;
+                    UPDATE `archivos` SET `ArcIcon` = 'portfolio-grid-1' WHERE `archivos`.`ArcID` = 15;
+                    UPDATE `archivos` SET `ArcIcon` = 'user-1' WHERE `archivos`.`ArcID` = 14;
+                    UPDATE `archivos` SET `ArcIcon` = 'add-1' WHERE `archivos`.`ArcID` = 13;
+                    UPDATE `archivos` SET `ArcIcon` = 'tag-1' WHERE `archivos`.`ArcID` = 7;
+                    UPDATE `archivos` SET `ArcIcon` = 'shopping-bag-1' WHERE `archivos`.`ArcID` = 10;
+                    UPDATE `archivos` SET `ArcIcon` = 'user-1' WHERE `archivos`.`ArcID` = 11;
+                    UPDATE `archivos` SET `ArcIcon` = 'portfolio-grid-1' WHERE `archivos`.`ArcID` = 12;";                
         return $update;
     }
 }
