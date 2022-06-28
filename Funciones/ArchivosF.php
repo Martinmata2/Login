@@ -86,6 +86,16 @@ class ArchivosF extends PermisosBD implements FuncionInterface
                     UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Descuentos.php', `ArcModulo` = '3', `ArcOrden` = '8' WHERE `archivos`.`ArcID` = 7;
                     UPDATE `archivos` SET `ArcPath` = 'Administrador/Ajustes.php' WHERE `archivos`.`ArcID` = 8;
                     UPDATE `archivos` SET `ArcPath` = 'Administrador/Lista/Claves.php' WHERE `archivos`.`ArcID` = 9;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Productos.php' WHERE `archivos`.`ArcID` = 10;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Clientes.php' WHERE `archivos`.`ArcID` = 11;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Proveedores.php' WHERE `archivos`.`ArcID` = 12;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Agregar/Productos.php' WHERE `archivos`.`ArcID` = 13;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Agregar/Clientes.php' WHERE `archivos`.`ArcID` = 14;
+                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Agregar/Proveedor.php' WHERE `archivos`.`ArcID` = 15;
+                    UPDATE `archivos` SET `ArcPath` = 'Pos/Agregar/Venta.php' WHERE `archivos`.`ArcID` = 16;
+                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Ventas.php' WHERE `archivos`.`ArcID` = 17;
+                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Creditos.php' WHERE `archivos`.`ArcID` = 18;
+                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Historial.php' WHERE `archivos`.`ArcID` = 19;            
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Compras.php' WHERE `archivos`.`ArcID` = 20;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Compras.php' WHERE `archivos`.`ArcID` = 21;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Salidas.php' WHERE `archivos`.`ArcID` = 22;
@@ -93,16 +103,7 @@ class ArchivosF extends PermisosBD implements FuncionInterface
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Salidas.php' WHERE `archivos`.`ArcID` = 23;
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Agregar/Ajustes.php' WHERE `archivos`.`ArcID` = 24;                    
                     UPDATE `archivos` SET `ArcPath` = 'Inventario/Lista/Ajustes.php' WHERE `archivos`.`ArcID` = 27;
-                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Traspasos.php' WHERE `archivos`.`ArcID` = 34;
-                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Productos.php' WHERE `archivos`.`ArcID` = 10;
-                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Lista/Clientes.php' WHERE `archivos`.`ArcID` = 11;
-                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Agregar/Productos.php' WHERE `archivos`.`ArcID` = 13;
-                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Agregar/Clientes.php' WHERE `archivos`.`ArcID` = 14;
-                    UPDATE `archivos` SET `ArcPath` = 'Catalogos/Agregar/Proveedor.php' WHERE `archivos`.`ArcID` = 15;
-                    UPDATE `archivos` SET `ArcPath` = 'Pos/Agregar/Venta.php' WHERE `archivos`.`ArcID` = 16;
-                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Ventas.php' WHERE `archivos`.`ArcID` = 17;
-                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Creditos.php' WHERE `archivos`.`ArcID` = 18;
-                    UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Historial.php' WHERE `archivos`.`ArcID` = 19;                    
+                    UPDATE `archivos` SET `ArcPath` = 'Inventario/Traspasos.php' WHERE `archivos`.`ArcID` = 34;                          
                     UPDATE `archivos` SET `ArcPath` = 'Pos/Agregar/Presupuesto.php' WHERE `archivos`.`ArcID` = 36;
                     UPDATE `archivos` SET `ArcPath` = 'Pos/Lista/Presupuestos.php' WHERE `archivos`.`ArcID` = 37;
                     UPDATE `archivos` SET `ArcPath` = 'Reportes/Monetario.php' WHERE `archivos`.`ArcID` = 25;
@@ -116,7 +117,8 @@ class ArchivosF extends PermisosBD implements FuncionInterface
                     UPDATE `archivos` SET `ArcIcon` = 'tag-1' WHERE `archivos`.`ArcID` = 7;
                     UPDATE `archivos` SET `ArcIcon` = 'shopping-bag-1' WHERE `archivos`.`ArcID` = 10;
                     UPDATE `archivos` SET `ArcIcon` = 'user-1' WHERE `archivos`.`ArcID` = 11;
-                    UPDATE `archivos` SET `ArcIcon` = 'portfolio-grid-1' WHERE `archivos`.`ArcID` = 12;";                
+                    UPDATE `archivos` SET `ArcIcon` = 'portfolio-grid-1' WHERE `archivos`.`ArcID` = 12;";          
+        
         return $update;
     }
 }
