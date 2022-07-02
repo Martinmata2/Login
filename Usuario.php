@@ -8,6 +8,7 @@ use Clases\Login\Datos\UsuarioD;
 use Clases\Catalogos\BasedatosInterface;
 use Clases\GridInterface;
 use Clases\UltimoInterface;
+use Clases\Catalogos\ListaInterface;
 
 //Definiciones para estandarizar valores
 define("USU_ELIMINADO", 1);
@@ -17,7 +18,7 @@ define("USU_SUCCESS", 200);
 define("USU_ERROR", 400);
 define("USU_DATOS_VALIDOS",200);
 define("USU_DATOS_INVALIDOS",400);
-class Usuario extends Query implements BasedatosInterface, GridInterface, UltimoInterface
+class Usuario extends Query implements BasedatosInterface, GridInterface, UltimoInterface, ListaInterface
 {   
     /**
      *
@@ -228,6 +229,14 @@ class Usuario extends Query implements BasedatosInterface, GridInterface, Ultimo
     {
         return $this->ultiorecord($tabla, $id)[0]->ultimo+1;
     }
+    public function listaJson($seleccionado, $condicion = "0", $ordenado = "0")
+    {}
+
+    public function listaSelect($seleccionado, $condicion = "0", $ordenado = "0")
+    {
+        return $this->options("UsuID as id, UsuNombre as nombre", $this->Tabla, $seleccionado,$condicion, $ordenado);
+    }
+
 
 
 

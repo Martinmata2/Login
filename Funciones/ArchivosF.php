@@ -118,7 +118,28 @@ class ArchivosF extends PermisosBD implements FuncionInterface
                     UPDATE `archivos` SET `ArcIcon` = 'tag-1' WHERE `archivos`.`ArcID` = 7;
                     UPDATE `archivos` SET `ArcIcon` = 'shopping-bag-1' WHERE `archivos`.`ArcID` = 10;
                     UPDATE `archivos` SET `ArcIcon` = 'user-1' WHERE `archivos`.`ArcID` = 11;
-                    UPDATE `archivos` SET `ArcIcon` = 'portfolio-grid-1' WHERE `archivos`.`ArcID` = 12;";          
+                    UPDATE `archivos` SET `ArcIcon` = 'portfolio-grid-1' WHERE `archivos`.`ArcID` = 12;
+                    UPDATE `archivos` SET `ArcIcon` = 'shopping-cart-1' WHERE `archivos`.`ArcID` = 16; 
+                    UPDATE `archivos` SET `ArcIcon` = 'cart-1' WHERE `archivos`.`ArcID` = 17; 
+                    UPDATE `archivos` SET `ArcIcon` = 'credit-card-1' WHERE `archivos`.`ArcID` = 18; 
+                    UPDATE `archivos` SET `ArcIcon` = 'dollar-sign-1' WHERE `archivos`.`ArcID` = 19; 
+                    UPDATE `archivos` SET `ArcIcon` = 'close-1' WHERE `archivos`.`ArcID` = 35; 
+                    UPDATE `archivos` SET `ArcIcon` = 'checkmark-1' WHERE `archivos`.`ArcID` = 36; 
+                    UPDATE `archivos` SET `ArcIcon` = 'list-details-1' WHERE `archivos`.`ArcID` = 37;
+                    UPDATE `archivos` SET `ArcIcon` = 'add-1' WHERE `archivos`.`ArcID` = 20;
+                    UPDATE `archivos` SET `ArcIcon` = 'list-details-1' WHERE `archivos`.`ArcID` = 21;
+                    UPDATE `archivos` SET `ArcIcon` = 'minus-1' WHERE `archivos`.`ArcID` = 22;
+                    UPDATE `archivos` SET `ArcIcon` = 'checked-window-1' WHERE `archivos`.`ArcID` = 23;
+                    UPDATE `archivos` SET `ArcIcon` = 'checkmark-1' WHERE `archivos`.`ArcID` = 24;
+                    UPDATE `archivos` SET `ArcIcon` = 'bookmark-1' WHERE `archivos`.`ArcID` = 27;
+                    UPDATE `archivos` SET `ArcIcon` = 'first-aid-kit-1' WHERE `archivos`.`ArcID` = 30;
+                    UPDATE `archivos` SET `ArcIcon` = 'money-box-1' WHERE `archivos`.`ArcID` = 25;
+                    UPDATE `archivos` SET `ArcIcon` = 'pie-chart-1' WHERE `archivos`.`ArcID` = 26;
+                    UPDATE `archivos` SET `ArcIcon` = 'cart-1' WHERE `archivos`.`ArcID` = 29;
+                    UPDATE `archivos` SET `ArcIcon` = 'dollar-badge-1' WHERE `archivos`.`ArcID` = 41;
+                    UPDATE `archivos` SET `ArcIcon` = 'user-1' WHERE `archivos`.`ArcID` = 4;
+                    UPDATE `archivos` SET `ArcIcon` = 'key-1' WHERE `archivos`.`ArcID` = 9;
+                    UPDATE `archivos` SET `ArcIcon` = 'settings-1' WHERE `archivos`.`ArcID` = 8;";          
         
         return $update;
     }

@@ -68,7 +68,7 @@ class Permisos extends Query implements BasedatosInterface, GridInterface
             $resultado = $this->consulta("*", $this->Tabla, "deleted <> ".PUS_ELIMINADO);
             if (\count($resultado) > 0)
                 return $resultado;
-                else return 0;
+            else return 0;
         }
         else
         {
@@ -96,8 +96,11 @@ class Permisos extends Query implements BasedatosInterface, GridInterface
         {
             $this->Permisos->data = new PermisosD($datos);
             if($this->validar())
-            {               
-                return $this->insertar($this->Tabla, $datos);
+            {  
+                if($this->Unico("PusUsuario", $datos->PusUsuario))
+                    return $this->insertar($this->Tabla, $datos);
+                else 
+                    return $this->editar($datos, $datos->PusUsuario, "PusUsuario");
             }
             else return 0;
         }
