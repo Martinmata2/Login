@@ -71,6 +71,12 @@ class Banco extends Query implements BasedatosInterface, GridInterface, ListaInt
         return true;       
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Clases\Catalogos\BasedatosInterface::obtener()
+     * @return BancoD
+     */
     public function obtener($id = 0, $campo = "CueID", $condicion = "0")
     {
         if($id <= 0)
@@ -102,12 +108,35 @@ class Banco extends Query implements BasedatosInterface, GridInterface, ListaInt
 
     public function agregar($datos)
     {
-        if($this->Banco->isAdmin($_SESSION["USR_ROL"]))
+        if($this->Banco->isSupervisor($_SESSION["USR_ROL"]))
         {
             $this->Banco->data = new BancoD($datos);
             if($this->validar() === true)
             {               
-                return $this->insertar($this->Tabla, $datos);
+                $this->conexion->begin_transaction();
+                $this->Detalles->conexion = $this->conexion;
+                $cuenta = $this->obtener($datos->CdeCuenta);
+                $datos->CdeSaldo = $cuenta->CueSaldo;
+                $respuesta = $this->Detalles->agregar($datos);
+                if($respuesta > 0)
+                {                    
+                    $saldo = $cuenta->CueSaldo + $datos->CdeMonto;
+                    if($this->editar(array("CueSaldo"=>$saldo), $datos->CdeCuenta) > 0)
+                    {
+                        $this->conexion->commit();
+                        return $respuesta;
+                    }
+                    else 
+                    {
+                        $this->conexion->rollback();
+                        return 0;
+                    }
+                }
+                else 
+                {
+                    $this->conexion->rollback();
+                    return 0;
+                }
             }
             else return 0;
         }
@@ -150,7 +179,7 @@ class Banco extends Query implements BasedatosInterface, GridInterface, ListaInt
         //lo declaramos para usar las constantes de Entrada y Salida   
         $cuentas = $this->listaSelect(0);
         return "
-        <form id='Efectivoformulario'>
+        <form id='Cuentaformulario'>
         	<input id='CSRF' type='hidden' value='".$_SESSION['CSRF']."' />
         	<div class='row gx-5 justify-content-center'>
         		<div class='col-lg-4 col-md-4'>
