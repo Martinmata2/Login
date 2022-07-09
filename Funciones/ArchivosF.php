@@ -111,6 +111,7 @@ class ArchivosF extends PermisosBD implements FuncionInterface
                     UPDATE `archivos` SET `ArcPath` = 'Reportes/Pizarron.php' WHERE `archivos`.`ArcID` = 26;
                     UPDATE `archivos` SET `ArcPath` = 'Reportes/Venta_Productos.php' WHERE `archivos`.`ArcID` = 29;
                     UPDATE `archivos` SET `ArcPath` = 'Reportes/Corte_Caja.php' WHERE `archivos`.`ArcID` = 41;
+                    UPDATE `archivos` SET `ArcPath` = 'Banco/Inicio.php' WHERE `archivos`.`ArcID` = 32;
                     UPDATE `archivos` SET `ArcIcon` = 'first-aid-kit-1' WHERE `archivos`.`ArcID` = 38;
                     UPDATE `archivos` SET `ArcIcon` = 'portfolio-grid-1' WHERE `archivos`.`ArcID` = 15;
                     UPDATE `archivos` SET `ArcIcon` = 'user-1' WHERE `archivos`.`ArcID` = 14;
@@ -139,7 +140,8 @@ class ArchivosF extends PermisosBD implements FuncionInterface
                     UPDATE `archivos` SET `ArcIcon` = 'dollar-badge-1' WHERE `archivos`.`ArcID` = 41;
                     UPDATE `archivos` SET `ArcIcon` = 'user-1' WHERE `archivos`.`ArcID` = 4;
                     UPDATE `archivos` SET `ArcIcon` = 'key-1' WHERE `archivos`.`ArcID` = 9;
-                    UPDATE `archivos` SET `ArcIcon` = 'settings-1' WHERE `archivos`.`ArcID` = 8;";          
+                    UPDATE `archivos` SET `ArcIcon` = 'settings-1' WHERE `archivos`.`ArcID` = 8;
+                    ";          
         
         return $update;
     }
