@@ -73,6 +73,12 @@ class BDetalles extends Query implements BasedatosInterface, GridInterface
         }
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Clases\Catalogos\BasedatosInterface::obtener()
+     * @return BDetallesD
+     */
     public function obtener($id = 0, $campo = "CdeID", $condicion = "0")
     {
         if($id <= 0)
@@ -143,7 +149,7 @@ class BDetalles extends Query implements BasedatosInterface, GridInterface
                 "formatter"=>"currency","formatoptions"=>array("prefix" => "$",	"suffix" => '',	"thousandsSeparator" => ",",
                     "decimalSeparator" => ".",
                     "decimalPlaces" => 2),"on_data_display"=>array("saldo_privado2"),                           "hidden"=>$arguments["mostrar"],
-                "link"=>"modificar.php?cuenta={CdeCuenta}&movimiento={CdeID}",      "linkoptions"=>"class='box'" ),
+                "link"=>$arguments["link2"],      "linkoptions"=>"class='box'" ),
             array("title"=>"Monto",                 "name"=>"CdeMonto",             "width"=>"80",              "align"=>"right",
                 "formatter"=>"currency","formatoptions"=>array("prefix" => "$",	"suffix" => '',	"thousandsSeparator" => ",",
                     "decimalSeparator" => ".",
@@ -168,10 +174,11 @@ class BDetalles extends Query implements BasedatosInterface, GridInterface
             <div class='row'>
         		<div class='col-md-3'>
         			<div class='form-floating mb-3'>                               
-        				 <input id='CdeID' type='hidden' />
+        				 <input id='CdeID' type='hidden' name='CdeID' />
         				 <input id='CSRF' type='hidden'
         					value='".$_SESSION["CSRF"]."' />          
-        				<input class='form-control datepicker' autocomplete='off' type='text' id='CdeFecha' name='CdeFecha'/>
+        				<input class='form-control datepicker' autocomplete='off' type='text' id='CdeFecha' 
+                            name='CdeFecha' ".$arguments["readonly"]."/>
         				<label for='CdeFecha'> Fecha</label>
         			</div>
         		</div>
@@ -187,13 +194,13 @@ class BDetalles extends Query implements BasedatosInterface, GridInterface
                 </div>
         		<div class='col-md-3'>
         			<div class='form-floating mb-3'>                        
-        				<input class='form-control' type='number' step='0.01' id='monto' /> 
+        				<input class='form-control' type='number' step='0.01' id='monto' readonly /> 
                         <label for='monto'> Cantidad</label>
         			</div>
         		</div>
         		<div class='col-md-3'>
         			<div class='form-floating mb-3'>                
-        				<input class='form-control' type='number' step='0.01' id='CdeMonto' name='CdeMonto' readonly />
+        				<input class='form-control' type='number' step='0.01' ".$arguments["readonly"]." id='CdeMonto' name='CdeMonto' value='0.00'/>
         				<label for='CdeMonto'> Modificaci&oacute;n</label>
         			</div>
         		</div>
@@ -209,17 +216,24 @@ class BDetalles extends Query implements BasedatosInterface, GridInterface
                 </div>
                 <div class='col-md-3'>
         			<div class='form-floating mb-3'>                        
-        				<input class='form-control' type='number' step='0.01' id='CdeSaldo' name='CdeSaldo' /> 
+        				<input class='form-control' type='number' step='0.01' id='CdeSaldo' name='CdeSaldo' readonly /> 
                         <label for='CdeSaldo'> Saldo</label>
         			</div>
         		</div>
         		<div class='col-md-3'>
         			<div class='form-floating mb-3'>                
-        				<input class='form-control' type='number' step='0.01' id='Diferencia' name='Diferencia' readonly />
+        				<input class='form-control' type='number' step='0.01' id='diferencia' name='diferencia' readonly value='0.00' />
         				<label for='Diferencia'> Diferencia</label>
         			</div>
         		</div>
-        		
+        		<div class='col-lg-6 col-xl-6'>
+        			<!-- Submit Button-->
+        			<div class='button-group text-center'>
+        				<button class='btn btn-primary' id='submitButtonModificar'
+        					type='submit'>Enviar</button>
+        				<button class='btn btn-danger' id='resetButtonModificar' type='reset'>Limpiar</button>
+        			</div>
+        		</div>
                 
             </div>
         </form>   ";
