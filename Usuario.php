@@ -234,7 +234,7 @@ class Usuario extends Query implements BasedatosInterface, GridInterface, Ultimo
 
     public function listaSelect($seleccionado, $condicion = "0", $ordenado = "0")
     {
-        return $this->options("UsuID as id, UsuNombre as nombre", "id", $this->Tabla, $seleccionado,$condicion, $ordenado);
+        return $this->options("UsuID as id, UsuNombre as nombre", $this->Tabla, "id", $seleccionado,$condicion, $ordenado);
     }
 
 

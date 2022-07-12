@@ -6,6 +6,7 @@ use Clases\Login\Funciones\ArchivosF;
 use Clases\Utilidades\Validar;
 use Clases\Login\Datos\ArchivosD;
 use Clases\Catalogos\BasedatosInterface;
+use Clases\Login\Datos\PermisosD;
 
 //Definiciones para estandarizar valores
 define("ARC_ELIMINADO", 1);
@@ -60,6 +61,12 @@ class Archivos extends Query implements BasedatosInterface
         return true;       
     }
 
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \Clases\Catalogos\BasedatosInterface::obtener()
+     * @return ArchivosD
+     */
     public function obtener($id = 0, $campo = "ArcID", $condicion = "0")
     {
         if($id <= 0)

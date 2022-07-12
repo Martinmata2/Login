@@ -158,7 +158,7 @@ class BDetalles extends Query implements BasedatosInterface, GridInterface
             //array("title"=>"Usuario","name"=>"UsuNombre","width"=>"80"),
             array("title"=>"Usuario",               "name"=>"CdeUsuario",           "width"=>"80",              "editable"=>$arguments["editar"],           "align"=>"center",      "type"=>"select",
                 "edittype"=>"select",            "formatter"=>"select",
-                "editoptions"=>array("value"=>$arguments["usuarios"]),              "editable"=>$arguments["edit"],                                         "op"=>"eq", 
+                "editoptions"=>array("value"=>$arguments["usuarios"]),              "editable"=>$arguments["editar"],                                         "op"=>"eq", 
                 "searchoptions"=>array("value"=>$arguments["usuarios"]),            "stype"=> "select"),
             array("title"=>"Tipo",                  "name"=>"CdeTipo",              "width"=>"10",              "hidden"=>true,               "export"=>false),
             array("title"=>"Imprimir",              "name"=>"print",                "width"=>"40",              "editable"=>false,              "align"=>"left",                    "search"=>false,
