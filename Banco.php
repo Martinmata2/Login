@@ -148,20 +148,29 @@ class Banco extends Query implements BasedatosInterface, GridInterface, ListaInt
             {
                 if($this->Detalles->editar($datos, $id, $campo))
                 {
-                    //obtener todos los movimientos posteriores al movimiento editado
-                    $movimientos = $this->consulta("CdeID, CdeFecha", "cuentadetalles", "CdeFecha > '$deposito->CdeFecha' AND CdeCuenta = $deposito->CdeCuenta");
-                    if($movimientos !== 0 && count($movimientos) > 0)
-                        foreach ($movimientos as $value)
-                        {
-                            //actualizar todos los movimientos corrijiendo el saldo
-                            if($this->modificarEspecial("cuentadetalles", array("CdeSaldo"=>"CdeSaldo - $diferencia"), "CdeID = $value->CdeID") == 0)
+                    //edita balance de cuenta
+                    if($this->modificarEspecial($this->Tabla, array("CueSaldo"=>"CueSaldo - $diferencia"), "CueID = $datos->CdeCuenta") > 0)
+                    {
+                        //obtener todos los movimientos posteriores al movimiento editado
+                        $movimientos = $this->consulta("CdeID, CdeFecha", "cuentadetalles", "CdeFecha > '$deposito->CdeFecha' AND CdeCuenta = $deposito->CdeCuenta");
+                        if($movimientos !== 0 && count($movimientos) > 0)
+                            foreach ($movimientos as $value)
                             {
-                                $this->conexion->rollback();
-                                return 0;
+                                //actualizar todos los movimientos corrijiendo el saldo
+                                if($this->modificarEspecial("cuentadetalles", array("CdeSaldo"=>"CdeSaldo - $diferencia"), "CdeID = $value->CdeID") == 0)
+                                {
+                                    $this->conexion->rollback();
+                                    return 0;
+                                }
                             }
-                        }
-                    $this->conexion->commit();
-                    return 1;
+                        $this->conexion->commit();
+                        return 1;
+                    }
+                    else 
+                    {
+                        $this->conexion->rollback();
+                        return 0;
+                    }
                 }
                 else 
                 {
@@ -179,22 +188,30 @@ class Banco extends Query implements BasedatosInterface, GridInterface, ListaInt
                 //editar movimiento
                 if($this->Detalles->editar($datos, $id, $campo))
                 {
-                    //obtener todos los movimientos posteriores al movimiento editado
-                    $movimientos = $this->consulta("CdeID, CdeFecha", "cuentadetalles", "CdeFecha > '$deposito->CdeFecha' AND CdeCuenta = $deposito->CdeCuenta");
-                    if($movimientos !== 0 && count($movimientos) > 0)
-                        foreach ($movimientos as $value)
-                        {
-                            //actualizar todos los movimientos corrijiendo el saldo
-                            if($this->modificar("cuentadetalles", array("CdeSaldo"=>$saldo), $value->CdeID, "CdeID") == 0)
+                    if($this->modificarEspecial($this->Tabla, array("CueSaldo"=>"CueSaldo - $diferencia"), "CueID = $datos->CdeCuenta") > 0)
+                    {
+                        //obtener todos los movimientos posteriores al movimiento editado
+                        $movimientos = $this->consulta("CdeID, CdeFecha", "cuentadetalles", "CdeFecha > '$deposito->CdeFecha' AND CdeCuenta = $deposito->CdeCuenta");
+                        if($movimientos !== 0 && count($movimientos) > 0)
+                            foreach ($movimientos as $value)
                             {
-                                $this->conexion->rollback();
-                                return 0;
+                                //actualizar todos los movimientos corrijiendo el saldo
+                                if($this->modificar("cuentadetalles", array("CdeSaldo"=>$saldo), $value->CdeID, "CdeID") == 0)
+                                {
+                                    $this->conexion->rollback();
+                                    return 0;
+                                }
+                                //actualizar el nuevo saldo
+                                $saldo += $value->CdeMonto; 
                             }
-                            //actualizar el nuevo saldo
-                            $saldo += $value->CdeMonto; 
-                        }
-                    $this->conexion->commit();
-                    return 1;
+                        $this->conexion->commit();
+                        return 1;
+                    }
+                    else 
+                    {
+                        $this->conexion->rollback();
+                        return 0;
+                    }
                 }
                 else
                 {
