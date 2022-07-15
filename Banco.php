@@ -9,6 +9,7 @@ use Clases\Catalogos\BasedatosInterface;
 use Clases\GridInterface;
 use Clases\Catalogos\Movimiento;
 use Clases\Catalogos\ListaInterface;
+use Clases\Catalogos\Clientes;
 
 //Definiciones para estandarizar valores
 define("BAN_ENTRADA_EFECTIVO", 7);
@@ -224,22 +225,22 @@ class Banco extends Query implements BasedatosInterface, GridInterface, ListaInt
     }
 
     public function agregar($datos)
-    {
+    {       
         if($this->Banco->isSupervisor($_SESSION["USR_ROL"]))
         {
-            $this->Banco->data = new BancoD($datos);
+            $this->Banco->data = new BancoD($datos);            
             if($this->validar() === true)
-            {               
+            {                               
                 $this->conexion->begin_transaction();
                 $this->Detalles->conexion = $this->conexion;
-                $cuenta = $this->obtener($datos->CdeCuenta);
-                $datos->CdeSaldo = $cuenta->CueSaldo;
-                $respuesta = $this->Detalles->agregar($datos);
+                $cuenta = $this->obtener($datos->CdeCuenta);                
+                $datos->CdeSaldo = $cuenta->CueSaldo;                      
+                $respuesta = $this->Detalles->agregar($datos);               
                 if($respuesta > 0)
                 {                    
-                    $saldo = $cuenta->CueSaldo + $datos->CdeMonto;
-                    if($this->editar(array("CueSaldo"=>$saldo), $datos->CdeCuenta) > 0)
-                    {
+                    $saldo = $cuenta->CueSaldo + $datos->CdeMonto;                    
+                    if($this->modificar($this->Tabla, array("CueSaldo"=>$saldo), $datos->CdeCuenta, "CueID") > 0)
+                    {                        
                         $this->conexion->commit();
                         return $respuesta;
                     }
@@ -411,7 +412,63 @@ class Banco extends Query implements BasedatosInterface, GridInterface, ListaInt
     }
 
     public function modal($arguments = null)
-    {}
+    {
+        
+        $CLIENTE = new Clientes();
+        $cuentas = $this->listaSelect(0);
+        $clientes = $CLIENTE->listaSelect(0,"0", "CliNombre");
+        return "
+        <form id='Prestamoformulario'>
+        	<input id='CSRF' type='hidden' value='".$_SESSION['CSRF']."' />
+        	<div class='row gx-5 justify-content-center'>
+        		<div class='col-lg-4 col-md-4'>
+                    <div class='form-floating mb-3'>
+        				<select class='form-select border-danger valida' data-type='length'
+        					data-length='1' name='CdeCuenta' id='CdeCuenta'
+        					required='required'>
+        					<option value=''>Selecciona Cuenta</option>
+        					$cuentas
+        				</select> <label for='CdeCuenta'>Cuenta</label>
+        				
+        			</div>
+    			</div>
+                <div class='col-lg-4 col-md-4'>
+                    <div class='form-floating mb-3'>
+        				<select class='form-select border-danger valida' data-type='length'
+        					data-length='1' name='Cliente' id='Cliente'
+        					required='required'>
+        					<option value=''>Selecciona Cliente</option>
+        					$clientes
+        				</select> <label for='Cliente'>Cuenta</label>
+        				
+        			</div>
+    			</div>
+                <div class='col-lg-4 col-md-4'>
+        			<div class='form-floating mb-3'>
+        				<input class='form-control border-danger valida' data-type='length'
+        					data-length='1' type='number' name='CdeMonto'
+        					required='required' step='0.01' /> <label for='CdeMonto'>Cantidad</label>
+        			</div>
+        		</div>
+        		<div class='col-lg-4 col-md-4'>
+        			<div class='form-floating mb-3'>
+        				<input class='form-control' type='text' name='CdeDescripcion'/> 
+                        <label for='CdeDescripcion'>Notas</label>
+        			</div>
+        		</div>
+                <br class='clear'/>
+        		<div class='col-lg-12 col-xl-12'>
+        			<!-- Submit Button-->
+        			<div class='button-group text-center'>
+        				<button class='btn btn-primary' id='submitButtonPrestamo'
+        					type='submit'>Enviar</button>
+        				<button class='btn btn-danger' id='resetButtonPrestamo' type='reset'>Limpiar</button>
+        			</div>
+        		</div>
+        	</div>
+        </form>
+        ";
+    }
     public function listaJson($seleccionado, $condicion = "0", $ordenado = "0")
     {}
 
