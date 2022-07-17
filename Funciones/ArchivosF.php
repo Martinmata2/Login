@@ -141,6 +141,8 @@ class ArchivosF extends PermisosBD implements FuncionInterface
                     UPDATE `archivos` SET `ArcIcon` = 'user-1' WHERE `archivos`.`ArcID` = 4;
                     UPDATE `archivos` SET `ArcIcon` = 'key-1' WHERE `archivos`.`ArcID` = 9;
                     UPDATE `archivos` SET `ArcIcon` = 'settings-1' WHERE `archivos`.`ArcID` = 8;
+                    UPDATE `archivos` SET `ArcIcon` = 'bank-cards-1' WHERE `archivos`.`ArcID` = 32; 
+                    UPDATE `archivos` SET `ArcPath` = 'Banco/Prestamos.php', `ArcIcon` = 'credit-card-1' WHERE `archivos`.`ArcID` = 28;
                     ";          
         
         return $update;

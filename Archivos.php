@@ -71,14 +71,14 @@ class Archivos extends Query implements BasedatosInterface
     {
         if($id <= 0)
         {
-            $resultado = $this->consulta("*", $this->Tabla, $condicion);
+            $resultado = $this->consulta("*", $this->Tabla, $condicion, "ArcOrden asc");
             if (\count($resultado) > 0)
                 return $resultado;
                 else return 0;
         }
         else
         {
-            $resultado = $this->consulta("*", $this->Tabla, "$campo = '$id'", $condicion);
+            $resultado = $this->consulta("*", $this->Tabla, "$campo = '$id'", $condicion, "ArcOrden asc");
             if (\count($resultado) > 0)
                 return $resultado[0];
                 else
