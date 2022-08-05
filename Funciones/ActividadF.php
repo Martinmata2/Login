@@ -70,7 +70,19 @@ class ActividadF extends PermisosBD implements FuncionInterface
     private function sql()
     {
         //sql code para generar la tabla
-        $sql = "";
+        $sql = "CREATE TABLE IF NOT EXISTS `actividad` (
+          `ActID` int(11) NOT NULL AUTO_INCREMENT,
+          `ActUsuario` int(11) NOT NULL,
+          `ActCantidad` decimal(10,2) NOT NULL,
+          `ActCodigo` int(11) NOT NULL COMMENT '1:ventas, 2:compras, 3: devolucion de productos 4:Edicion de Compras, 5:Salida de Efectivo, 6:Entrada de Efectivo, 7:Pagos, 8:entrada, 9:salida, 10: edificacion de Producto, 11: devolucion de producto en compra 12:Creditos',
+          `ActDescripcion` text COLLATE utf8_spanish2_ci NOT NULL,
+          `ActFecha` datetime NOT NULL,
+          `ActRelacion` int(11) NOT NULL,
+          `updated` tinyint(1) NOT NULL,
+          PRIMARY KEY (`ActID`),
+          KEY `actividad:fecha` (`ActFecha`),
+          KEY `actividad_relacion` (`ActRelacion`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
         return $sql;
     }
 

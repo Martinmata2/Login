@@ -70,7 +70,14 @@ class ModulosF extends PermisosBD implements FuncionInterface
     private function sql()
     {
         //sql code para generar la tabla
-        $sql = "";
+        $sql = "CREATE TABLE IF NOT EXISTS `modulos` (
+          `ModID` int(11) NOT NULL AUTO_INCREMENT,
+          `ModNombre` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+          `ModRol` int(11) NOT NULL,
+          `ModOrden` int(3) NOT NULL,
+          `lastupdate` timestamp NOT NULL DEFAULT current_timestamp(),
+          PRIMARY KEY (`ModID`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
         return $sql;
     }
 

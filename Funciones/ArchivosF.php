@@ -70,7 +70,17 @@ class ArchivosF extends PermisosBD implements FuncionInterface
     private function sql()
     {
         //sql code para generar la tabla
-        $sql = "";
+        $sql = "CREATE TABLE IF NOT EXISTS `archivos` (
+          `ArcID` int(11) NOT NULL AUTO_INCREMENT,
+          `ArcNombre` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+          `ArcPath` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+          `ArcIcon` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+          `ArcModulo` int(11) NOT NULL,
+          `ArcOrden` int(11) NOT NULL,
+          `ArcSubModulo` int(11) NOT NULL,
+          `lastupdate` timestamp NOT NULL DEFAULT current_timestamp(),
+          PRIMARY KEY (`ArcID`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
         return $sql;
     }
 

@@ -91,7 +91,7 @@ class UsuarioF extends PermisosBD implements FuncionInterface
           `session_id` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
           PRIMARY KEY (`UsuID`),
           UNIQUE KEY `UsuUsuario` (`UsuUsuario`)
-        ) ENGINE=MyISAM AUTO_INCREMENT=169 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci";
+        ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci";
         return $sql;
     }
 

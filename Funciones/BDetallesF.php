@@ -70,7 +70,20 @@ class BDetallesF extends PermisosBD implements FuncionInterface
     private function sql()
     {
         //sql code para generar la tabla
-        $sql = "";
+        $sql = "CREATE TABLE IF NOT EXISTS `cuentadetalles` (
+          `CdeID` int(11) NOT NULL AUTO_INCREMENT,
+          `CdeCuenta` int(11) NOT NULL,
+          `CdeUsuario` int(11) NOT NULL,
+          `CdeMonto` decimal(12,2) NOT NULL,
+          `CdeSaldo` decimal(12,2) NOT NULL,
+          `CdeFecha` datetime NOT NULL,
+          `CdeTipo` tinyint(4) NOT NULL,
+          `CdeConcepto` tinytext CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+          `CdeReferencia` int(11) NOT NULL,
+          `CdeClave` int(11) NOT NULL,
+          `CdeDescripcion` tinytext NOT NULL,
+          PRIMARY KEY (`CdeID`)
+        ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
         return $sql;
     }
 

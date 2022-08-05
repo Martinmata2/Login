@@ -70,7 +70,12 @@ class RolF extends PermisosBD implements FuncionInterface
     private function sql()
     {
         //sql code para generar la tabla
-        $sql = "";
+        $sql = "CREATE TABLE IF NOT EXISTS `rol` (
+          `RolID` int(11) NOT NULL AUTO_INCREMENT,
+          `RolNombre` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+          `lastupdate` timestamp NOT NULL DEFAULT current_timestamp(),
+          PRIMARY KEY (`RolID`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
         return $sql;
     }
 

@@ -70,7 +70,15 @@ class BancoF extends PermisosBD implements FuncionInterface
     private function sql()
     {
         //sql code para generar la tabla
-        $sql = "";
+        $sql = "CREATE TABLE IF NOT EXISTS `cuentas` (
+          `CueID` int(11) NOT NULL AUTO_INCREMENT,
+          `CueNombre` tinytext CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+          `CueDetalle` tinytext CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+          `CueSaldo` decimal(10,2) NOT NULL,
+          `CueNumero` varchar(20) NOT NULL,
+          `CueUsuarios` varchar(40) NOT NULL,
+          PRIMARY KEY (`CueID`)
+        ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;";
         return $sql;
     }
 

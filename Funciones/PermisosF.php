@@ -70,7 +70,16 @@ class PermisosF extends PermisosBD implements FuncionInterface
     private function sql()
     {
         //sql code para generar la tabla
-        $sql = "";
+        $sql = "CREATE TABLE IF NOT EXISTS `permisosusuarios` (
+          `PusID` int(11) NOT NULL AUTO_INCREMENT,
+          `PusUsuario` int(11) NOT NULL,
+          `PusPermisos` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+          `updated` int(1) NOT NULL,
+          `lastupdate` timestamp NOT NULL DEFAULT current_timestamp(),
+          PRIMARY KEY (`PusID`),
+          UNIQUE KEY `PusUsuario` (`PusUsuario`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+";
         return $sql;
     }
 
