@@ -146,7 +146,7 @@ class Usuario extends Query implements BasedatosInterface, GridInterface, Ultimo
     public function grid($arguments = null)
     {
         return array(
-            array("title"=> "ID",               "name"=>"UsuID",                "editable"=>false,              "width"=>"40",              "hidden"=>true,                 "export"=>false),
+            array("title"=> "ID",               "name"=>"UsuID",                "editable"=>false,              "width"=>"40",              "hidden"=>true,                 "hidedlg"=>true,            "export"=>false),
             array("title"=>"Nombre/<br>Clone",  "name"=>"UsuNombre",            "editable"=>true,               "width"=>"100",             "align"=>"center",
                 "link"=>$arguments["link"],     "linkoptions"=>"class='box'"),
             array("title"=>"Rol",               "name"=>"UsuRol",               "editable"=>true,               "width"=>"40",              "align"=>"center",

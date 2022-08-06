@@ -141,8 +141,8 @@ class BDetalles extends Query implements BasedatosInterface, GridInterface
     public function grid($arguments = null)
     {
         return array(
-            array("title"=>"ID",                    "name"=>"CdeID",                "width"=>"10",                                          "hidden"=>true,             "export"=>false),
-            array("title"=>"Cuentas",               "name"=>"CdeCuenta",            "width"=>"10",                                          "hidden"=>true,             "export"=>false),
+            array("title"=>"ID",                    "name"=>"CdeID",                "width"=>"10",                                          "hidden"=>true,             "hidedlg"=>true,            "export"=>false),
+            array("title"=>"Cuentas",               "name"=>"CdeCuenta",            "width"=>"10",                                          "hidden"=>true,             "hidedlg"=>true,            "export"=>false),
             array("title"=>"Fecha / Cuenta",        "name"=>"CdeFecha",             "width"=>"80",
                 "link"=>$arguments["link"],         "linkoptions"=>"class='box'" ),
             array("title"=>"Saldo / Modificar",     "name"=>"CdeSaldo",             "width"=>"80",              "align"=>"right",
@@ -160,8 +160,8 @@ class BDetalles extends Query implements BasedatosInterface, GridInterface
                 "edittype"=>"select",            "formatter"=>"select",
                 "editoptions"=>array("value"=>$arguments["usuarios"]),              "editable"=>$arguments["editar"],                                         "op"=>"eq", 
                 "searchoptions"=>array("value"=>$arguments["usuarios"]),            "stype"=> "select"),
-            array("title"=>"Tipo",                  "name"=>"CdeTipo",              "width"=>"10",              "hidden"=>true,               "export"=>false),
-            array("title"=>"Imprimir",              "name"=>"print",                "width"=>"40",              "editable"=>false,              "align"=>"left",                    "search"=>false,
+            array("title"=>"Tipo",                  "name"=>"CdeTipo",              "width"=>"10",              "hidden"=>true,               "hidedlg"=>true,          "export"=>false),
+            array("title"=>"Imprimir",              "name"=>"print",                "width"=>"40",              "editable"=>false,             "align"=>"left",                    "search"=>false,
                 "default"=>$arguments["imprimir"])
         );
     }
