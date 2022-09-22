@@ -75,7 +75,13 @@ class RolF extends PermisosBD implements FuncionInterface
           `RolNombre` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
           `lastupdate` timestamp NOT NULL DEFAULT current_timestamp(),
           PRIMARY KEY (`RolID`)
-        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
+        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+        
+        INSERT INTO `rol` (`RolID`, `RolNombre`, `lastupdate`) VALUES
+        (1, 'PROGRAMADOR', '2017-06-21 23:09:40'),
+        (2, 'ADMINISTRADOR', '2017-06-21 23:09:50'),
+        (3, 'SUPERVISOR', '2017-06-21 23:10:00'),
+        (4, 'USUARIO', '2017-06-21 23:10:10');";
         return $sql;
     }
 

@@ -77,7 +77,16 @@ class ModulosF extends PermisosBD implements FuncionInterface
           `ModOrden` int(3) NOT NULL,
           `lastupdate` timestamp NOT NULL DEFAULT current_timestamp(),
           PRIMARY KEY (`ModID`)
-        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
+        ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+        INSERT INTO `modulos` (`ModID`, `ModNombre`, `ModRol`, `ModOrden`, `lastupdate`) VALUES
+        (1, 'PROGRAMA', 1, 8, '2017-06-21 23:19:37'),
+        (2, 'ADMINISTRADOR', 2, 4, '2017-06-21 23:20:06'),
+        (3, 'CATALOGOS', 3, 2, '2017-06-21 23:20:20'),
+        (4, 'PUNTO VENTA', 3, 1, '2017-06-21 23:20:28'),
+        (5, 'INVENTARIO', 3, 3, '2017-06-21 23:20:37'),
+        (6, 'REPORTES', 3, 5, '2017-06-21 23:20:37'),
+        (7, 'BANCO', 3, 7, '2017-06-21 23:20:37'),
+        (8, 'WEB', 3, 6, '2017-06-21 23:20:37');";
         return $sql;
     }
 

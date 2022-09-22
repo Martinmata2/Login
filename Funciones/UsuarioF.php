@@ -91,7 +91,11 @@ class UsuarioF extends PermisosBD implements FuncionInterface
           `session_id` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
           PRIMARY KEY (`UsuID`),
           UNIQUE KEY `UsuUsuario` (`UsuUsuario`)
-        ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci";
+        ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+        
+        INSERT INTO `usuarios` 
+            (`UsuID`, `UsuCliente`, `UsuNombre`, `UsuUsuario`, `UsuClave`, `UsuRol`, `UsuEmail`, `UsuToken`, `UsuBd`, `UsuCodigo`, `UsuActivo`, `UsuEmpresa`, `updated`, `lastupdate`, `UsuClavePAC`, `UsuUsuarioPAC`, `token`, `session_id`) 
+    VALUES (1, 0, 'FARMACIA LA SUCURSAL ROOT', '3482a7f8ec5b6e9d19fe48be6459c97a', '0b10b29cf24c04543d4faa2e48d3cd6c', 1, '', '0', 'puntodeventa', '100000000001', 1, '', 1, '2020-09-09 19:13:35', '', '', 'R9vZ3FV8dQeyvMfGDqjG9crb', '0l7eumlq3oks3plk4oefgt72g7');";
         return $sql;
     }
 
