@@ -83,7 +83,7 @@ class ArchivosF extends PermisosBD implements FuncionInterface
         ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
         INSERT INTO `archivos` (`ArcID`, `ArcNombre`, `ArcPath`, `ArcIcon`, `ArcModulo`, `ArcOrden`, `ArcSubModulo`, `lastupdate`) VALUES
-        (1, 'Caja', 'Caja/Inicio.php', 'fi-torsos-all', 4, 1, 0, '2017-03-22 19:01:59'),        
+        
         (2, 'Usuarios', 'Administrador/Lista/Usuarios.php', 'user-1', 2, 1, 0, '2017-03-23 16:57:00'),             
         (3, 'Descuentos', 'Catalogos/Lista/Descuentos.php', 'tag-1', 3, 8, 0, '2017-07-14 01:18:51'),
         (4, 'Ajustes', 'Administrador/Ajustes.php', 'settings-1', 2, 5, 0, '2017-06-30 15:23:45'),
