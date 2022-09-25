@@ -65,6 +65,8 @@ class Acceso extends Usuario
        $_SESSION["USR_NOMBRE"] = $this->Usuario->data->UsuNombre;
        $_SESSION["USR_ID"] = $this->Usuario->data->UsuID;     
        $_SESSION["USR_BD"] = BD_GENERAL;       
+       $_SESSION["USR_USUARIO_PAC"] = $this->Usuario->data->UsuUsuarioPAC;
+       $_SESSION["USR_CLAVE_PAC"] = $this->Usuario->data->UsuClavePAC;
        if(!isset($_SESSION["CSRF"]))
            $_SESSION["CSRF"] = session_id();
        /**
