@@ -5,7 +5,7 @@ use Clases\MySql\Query;
 use Clases\Login\Funciones\ModulosF;
 use Clases\Utilidades\Validar;
 use Clases\Login\Datos\ModulosD;
-use Clases\Catalogos\BasedatosInterface;
+use Clases\BasedatosInterface;
 
 //Definiciones para estandarizar valores
 define("MOD_ELIMINADO", 1);

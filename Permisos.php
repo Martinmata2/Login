@@ -5,7 +5,7 @@ use Clases\MySql\Query;
 use Clases\Login\Funciones\PermisosF;
 use Clases\Utilidades\Validar;
 use Clases\Login\Datos\PermisosD;
-use Clases\Catalogos\BasedatosInterface;
+use Clases\BasedatosInterface;
 use Clases\GridInterface;
 
 //Definiciones para estandarizar valores

@@ -5,8 +5,8 @@ use Clases\MySql\Query;
 use Clases\Login\Funciones\RolF;
 use Clases\Utilidades\Validar;
 use Clases\Login\Datos\RolD;
-use Clases\Catalogos\BasedatosInterface;
-use Clases\Catalogos\ListaInterface;
+use Clases\BasedatosInterface;
+use Clases\ListaInterface;
 
 //Definiciones para estandarizar valores
 define("ROL_ELIMINADO", 1);

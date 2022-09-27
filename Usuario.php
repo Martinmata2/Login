@@ -5,10 +5,10 @@ use Clases\MySql\Query;
 use Clases\Login\Funciones\UsuarioF;
 use Clases\Utilidades\Validar;
 use Clases\Login\Datos\UsuarioD;
-use Clases\Catalogos\BasedatosInterface;
+use Clases\BasedatosInterface;
 use Clases\GridInterface;
 use Clases\UltimoInterface;
-use Clases\Catalogos\ListaInterface;
+use Clases\ListaInterface;
 
 //Definiciones para estandarizar valores
 define("USU_ELIMINADO", 1);

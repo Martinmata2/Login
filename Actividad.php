@@ -5,7 +5,7 @@ use Clases\MySql\Query;
 use Clases\Login\Funciones\ActividadF;
 use Clases\Utilidades\Validar;
 use Clases\Login\Datos\ActividadD;
-use Clases\Catalogos\BasedatosInterface;
+use Clases\BasedatosInterface;
 
 
 define("ACT_VENTA",1);

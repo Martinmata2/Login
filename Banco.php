@@ -5,7 +5,7 @@ use Clases\MySql\Query;
 use Clases\Login\Funciones\BancoF;
 use Clases\Utilidades\Validar;
 use Clases\Login\Datos\BancoD;
-use Clases\Catalogos\BasedatosInterface;
+use Clases\BasedatosInterface;
 use Clases\GridInterface;
 use Clases\Catalogos\Movimiento;
 use Clases\Catalogos\ListaInterface;
