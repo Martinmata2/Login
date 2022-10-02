@@ -64,12 +64,12 @@ class Archivos extends Query implements BasedatosInterface
     /**
      * 
      * {@inheritDoc}
-     * @see \Clases\Catalogos\BasedatosInterface::obtener()
+     * @see \Clases\BasedatosInterface::obtener()
      * @return ArchivosD
      */
     public function obtener($id = 0, $campo = "ArcID", $condicion = "0")
     {
-        if($id <= 0)
+        if($id == "0")
         {
             $resultado = $this->consulta("*", $this->Tabla, $condicion, "ArcOrden asc");
             if (\count($resultado) > 0)
